@@ -70,6 +70,8 @@ class Broker
      */
     public function __construct(string $url, string $broker, string $secret)
     {
+
+
         if (!(bool)preg_match('~^https?://~', $url)) {
             throw new \InvalidArgumentException("Invalid SSO server URL '$url'");
         }
@@ -82,7 +84,9 @@ class Broker
         $this->broker = $broker;
         $this->secret = $secret;
 
+
         $this->state = new Cookies();
+
     }
 
     /**
@@ -156,8 +160,8 @@ class Broker
      */
     protected function getVerificationCode(): ?string
     {
-        $this->initialize();
 
+        $this->initialize();
         return $this->verificationCode;
     }
 
@@ -165,7 +169,7 @@ class Broker
      * Get the cookie name.
      * The broker name is part of the cookie name. This resolves issues when multiple brokers are on the same domain.
      */
-    protected function getCookieName(string $type): string
+    protected function getCookieName($type): string
     {
         $brokerName = preg_replace('/[_\W]+/', '_', strtolower($this->broker));
 
@@ -216,6 +220,7 @@ class Broker
      */
     public function isAttached(): bool
     {
+
         return $this->getVerificationCode() !== null;
     }
 

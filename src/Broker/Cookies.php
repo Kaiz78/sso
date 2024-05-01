@@ -35,7 +35,7 @@ class Cookies implements \ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($_COOKIE[$offset]);
     }
@@ -43,7 +43,7 @@ class Cookies implements \ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset): ?string
     {
         return $_COOKIE[$offset] ?? null;
     }
@@ -51,7 +51,7 @@ class Cookies implements \ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         $success = setcookie($offset, $value, time() + $this->ttl, $this->path, $this->domain, $this->secure, true);
 
@@ -65,7 +65,7 @@ class Cookies implements \ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         setcookie($offset, '', 1, $this->path, $this->domain, $this->secure, true);
         unset($_COOKIE[$offset]);

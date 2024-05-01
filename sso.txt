@@ -1,0 +1,38 @@
+
+
+Windows Définir les variable: (Terminal windows marche les variable marche pas sur powershell)
+
+Instance Site 1 
+set SSO_SERVER=http://localhost:8000/attach.php
+set SSO_BROKER_ID=Alice
+set SSO_BROKER_SECRET=8iwzik1bwd
+
+
+
+
+php -S localhost:8001 -t demo/broker/
+
+
+Instance Site 2
+
+set SSO_SERVER=http://localhost:8000/attach.php
+set SSO_BROKER_ID=Greg
+set SSO_BROKER_SECRET=7pypoox2pc
+
+
+php -S localhost:8002 -t demo/broker/
+
+
+Instance Site 3
+
+set SSO_SERVER=http://localhost:8000/attach.php
+set SSO_BROKER_ID=Julius
+set SSO_BROKER_SECRET=ceda63kmhp
+
+
+php -S localhost:8003 -t demo/broker/
+
+
+Username => jackie	
+Password => jackie123
+

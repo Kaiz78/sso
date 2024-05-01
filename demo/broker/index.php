@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 use Jasny\SSO\Broker\Broker;
@@ -7,6 +6,7 @@ use Jasny\SSO\Broker\Broker;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 /** @var Broker $broker */
+
 $broker = require_once __DIR__ . '/include/attach.php';
 
 // Get the user info from the SSO server via the API.
@@ -16,6 +16,7 @@ try {
     require __DIR__ . '/error.php';
     exit();
 }
+
 
 ?>
 <!doctype html>
